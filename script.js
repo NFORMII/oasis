@@ -294,6 +294,22 @@ modalCloseBtn.addEventListener('click', closeQuickView);
 modalOverlay.addEventListener('click', (e) => {
     if (e.target === modalOverlay) closeQuickView();
 });
+// Check if the current visitor is logged in as an admin
+async function checkAdminStatus() {
+    // Ensure supabase is initialized in your script.js
+    const { data: { session } } = await supabase.auth.getSession();
+    
+    // Grab the admin button we created in index.html
+    const adminBtn = document.getElementById('nav-admin-btn');
+    
+    // If a session exists (you are logged in), reveal the button!
+    if (session && adminBtn) {
+        adminBtn.style.display = 'inline-block';
+    }
+}
+
+// Run the check as soon as index.html loads
+checkAdminStatus();
 
 // ----------------------------------------------------------------------
 // 8. INITIALIZATION

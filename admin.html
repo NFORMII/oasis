@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oasis - Admin Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-color: #0f172a; color: #f8fafc; font-family: system-ui, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
+
+    <!-- Login Screen Container -->
+    <div id="auth-container" style="background: #1e293b; padding: 2rem; border-radius: 8px; width: 100%; max-width: 400px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+        <h2 style="margin-top: 0; margin-bottom: 1.5rem; text-align: center;">Oasis Admin Login</h2>
+        <form id="login-form">
+            <div style="margin-bottom: 1rem;">
+                <label style="display: block; margin-bottom: 0.5rem;">Email</label>
+                <input type="email" id="admin-email" required style="width: 100%; padding: 0.75rem; border-radius: 4px; border: 1px solid #334155; background: #0f172a; color: #fff; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.5rem;">Password</label>
+                <input type="password" id="admin-password" required style="width: 100%; padding: 0.75rem; border-radius: 4px; border: 1px solid #334155; background: #0f172a; color: #fff; box-sizing: border-box;">
+            </div>
+            <button type="submit" style="width: 100%; padding: 0.75rem; background: #2563eb; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Sign In</button>
+        </form>
+    </div>
+
+    <!-- Admin Dashboard Form (Hidden by default until logged in) -->
+    <div id="admin-dashboard" style="display: none; background: #1e293b; padding: 2rem; border-radius: 8px; width: 100%; max-width: 600px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h2 style="margin: 0;">Add New Book</h2>
+            <button id="logout-btn" style="padding: 0.5rem 1rem; background: #ef4444; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Logout</button>
+        </div>
+
+        <form id="add-book-form">
+            <div style="margin-bottom: 1rem;">
+                <label style="display: block; margin-bottom: 0.25rem;">Book Title</label>
+                <input type="text" id="title" required style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid #334155; background: #0f172a; color: #fff; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                <div style="flex: 1;">
+                    <label style="display: block; margin-bottom: 0.25rem;">Author</label>
+                    <input type="text" id="author" required style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid #334155; background: #0f172a; color: #fff; box-sizing: border-box;">
+                </div>
+                <div style="flex: 1;">
+                    <label style="display: block; margin-bottom: 0.25rem;">Category</label>
+                    <input type="text" id="category" required style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid #334155; background: #0f172a; color: #fff; box-sizing: border-box;">
+                </div>
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label style="display: block; margin-bottom: 0.25rem;">Price ($)</label>
+                <input type="number" id="price" step="0.01" required style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid #334155; background: #0f172a; color: #fff; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label style="display: block; margin-bottom: 0.25rem;">Image URL (R2 / Cloudinary / Supabase Link)</label>
+                <input type="url" id="image-url" required placeholder="https://pub-xxxxxx.r2.dev/book.png" style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid #334155; background: #0f172a; color: #fff; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.25rem;">Description</label>
+                <textarea id="description" rows="4" style="width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid #334155; background: #0f172a; color: #fff; box-sizing: border-box;"></textarea>
+            </div>
+            <button type="submit" style="width: 100%; padding: 0.75rem; background: #10b981; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Publish Book to Oasis Store</button>
+        </form>
+    </div>
+
+    <!-- Script Import (Links to your JS logic) -->
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
